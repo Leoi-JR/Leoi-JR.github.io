@@ -1,0 +1,57 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--sp-12);
+  height: var(--nav-height);
+  background: transparent;
+  transition: background var(--transition-base), box-shadow var(--transition-base);
+}
+
+.navbar--scrolled {
+  background: var(--color-surface);
+  box-shadow: 0 1px 0 var(--color-primary-dim), var(--glow-sm);
+}
+
+/* Logo */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--fs-md);
+  font-weight: 600;
+}
+.navbar__prompt { color: var(--color-accent); }
+.navbar__name   { color: var(--color-primary); }
+
+/* Links */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-6);
+  list-style: none;
+}
+
+.navbar__link {
+  color: var(--color-secondary);
+  font-size: var(--fs-sm);
+  font-family: var(--font-mono);
+  cursor: pointer;
+  transition: color var(--transition-fast), text-shadow var(--transition-fast);
+}
+.navbar__link:hover {
+  color: var(--color-primary);
+  text-shadow: var(--glow-text);
+}
+
+/* 移动端隐藏文字导航 */
+@media (max-width: 640px) {
+  .navbar { padding: 0 var(--sp-5); }
+  .navbar__links { gap: var(--sp-3); }
+  .navbar__link  { font-size: var(--fs-xs); }
+}

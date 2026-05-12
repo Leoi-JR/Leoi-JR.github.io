@@ -1,0 +1,99 @@
+.about { gap: var(--sp-5); }
+
+.about__box {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+  box-shadow: var(--glow-sm);
+}
+
+.about__para {
+  color: var(--color-secondary);
+  font-size: var(--fs-base);
+  line-height: 1.9;
+}
+
+/* ── 技术栈 ── */
+.about__skills {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.about__skill-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-2) var(--sp-8);
+}
+
+.about__skill-group {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: var(--sp-2);
+  align-items: start;
+  padding: var(--sp-2) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about__skill-label {
+  color: var(--color-accent);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  white-space: nowrap;
+  padding-top: 2px;
+}
+
+.about__skill-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-1) var(--sp-3);
+}
+
+.about__skill-item {
+  color: var(--color-primary);
+  font-size: var(--fs-sm);
+}
+
+/* ── 教育经历 ── */
+.about__edu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.about__edu-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.about__edu-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+
+.about__edu-period {
+  color: var(--color-muted-text);
+  font-size: var(--fs-xs);
+}
+
+.about__edu-info {
+  color: var(--color-secondary);
+  font-size: var(--fs-sm);
+}
+
+.about__edu-degree {
+  color: var(--color-primary);
+}
+
+/* 移动端 */
+@media (max-width: 640px) {
+  .about__skill-grid  { grid-template-columns: 1fr; }
+  .about__skill-group { grid-template-columns: 1fr; }
+  .about__skill-label { margin-bottom: var(--sp-1); }
+}

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <!-- 背景 -->
+  <rect width="48" height="48" fill="#020C12"/>
+
+  <!-- 扫描线纹理 -->
+  <rect x="0" y="8"  width="48" height="1" fill="#00CCFF" opacity="0.06"/>
+  <rect x="0" y="16" width="48" height="1" fill="#00CCFF" opacity="0.06"/>
+  <rect x="0" y="24" width="48" height="1" fill="#00CCFF" opacity="0.06"/>
+  <rect x="0" y="32" width="48" height="1" fill="#00CCFF" opacity="0.06"/>
+  <rect x="0" y="40" width="48" height="1" fill="#00CCFF" opacity="0.06"/>
+
+  <!-- 字母 L：竖笔画 + 横笔画，像素感圆角 -->
+  <rect x="13" y="9"  width="5" height="24" rx="1" fill="#00CCFF"/>
+  <rect x="13" y="28" width="22" height="5"  rx="1" fill="#00CCFF"/>
+
+  <!-- 光晕 -->
+  <rect x="13" y="9"  width="5" height="24" rx="1" fill="#00CCFF" opacity="0.3" filter="url(#g)"/>
+  <rect x="13" y="28" width="22" height="5"  rx="1" fill="#00CCFF" opacity="0.3" filter="url(#g)"/>
+
+  <!-- 右下角光标方块 -->
+  <rect x="33" y="34" width="5" height="6" rx="0" fill="#FF8C00" opacity="0.9"/>
+
+  <defs>
+    <filter id="g" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+  </defs>
+</svg>
