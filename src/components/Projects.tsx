@@ -6,8 +6,8 @@ type Project = {
   date?: string
   desc: string
   tags: string[]
-  intro?: string   // 业务介绍链接
-  source: string   // GitHub 链接
+  intro?: string   // 技术介绍链接
+  source?: string  // GitHub 链接（内部项目可为空）
 }
 
 type Category = {
@@ -48,9 +48,14 @@ const CATEGORIES: Category[] = [
     cmd: 'ls ~/projects/llm-rag/',
     projects: [
       {
+        dir: 'investment-agent/',
+        desc: '智能招商问答 Agent（内部项目）。基于 Dify 构建多阶段 Agent 工作流：意图识别 → 双工具路由（SQL 查询 / 联网搜索）→ LLM 归纳输出。SQL 查询逻辑自行编写并集成至工作流，兼顾本地数据深度与外部信息覆盖。',
+        tags: ['Dify', 'Tool Calling', 'SQL', 'LLM'],
+      },
+      {
         dir: 'esg-report-generator/',
-        desc: 'ESG 报告全链路自动生成系统。支持 7 种文档格式（含扫描件 OCR），三路混合检索（HyDE×2 + BM25 + Reranker + RRF），LLM 多章节并发撰稿，配套 Next.js 编辑平台（SSE 实时进度、富文本编辑、版本历史）。',
-        tags: ['Python', 'Next.js', 'BM25', 'Reranker', 'DashScope', 'GLM-OCR'],
+        desc: 'ESG 报告全链路自动生成系统。支持 7 种文档格式（含扫描件 OCR），三路混合检索（Query Embedding + HyDE + BM25 + Reranker + RRF），LLM 多章节并发撰稿，配套 Next.js 编辑平台（SSE 实时进度、富文本编辑、版本历史）。',
+        tags: ['Python', 'Next.js', 'BM25', 'ChromaDB', 'MySQL'],
         intro: 'https://leoi-jr.github.io/esg-report-generator/showcase/index.html',
         source: 'https://github.com/Leoi-JR/esg-report-generator',
       },
@@ -62,9 +67,9 @@ const CATEGORIES: Category[] = [
     projects: [
       {
         dir: 'gualian/',
-        desc: '企业数据产业链关键词标记工具。10 种关键词组合规则，三阶段短路求值（Like → Must → Unlike）减少 60–70% 冗余正则，向量化匹配性能提升 80%+，多进程并行处理大规模 Parquet，96 个单元测试用例。',
+        desc: '大规模文本关键词规则匹配与标注工具（RuleKit）。10 种关键词组合规则，三阶段短路求值（Like → Must → Unlike）显著减少冗余正则操作，引入向量化匹配与正则编译缓存，将全量数据处理时间从数周压缩至天级别。多进程并行处理大规模 Parquet，88 个单元测试用例。',
         tags: ['Python', 'Pandas', 'ProcessPoolExecutor', 'Regex', 'Pytest'],
-        intro: 'https://leoi-jr.github.io/gualian/',
+        intro: 'https://leoi-jr.github.io/rulekit/',
         source: 'https://github.com/Leoi-JR/gualian',
       },
     ],
@@ -101,7 +106,7 @@ export default function Projects() {
       <div className="divider content-width" aria-hidden="true">{'─'.repeat(56)}</div>
 
       <p className="projects__intro content-width">
-        以下项目围绕「产业经济数据智能化」主线展开，形成了从规则引擎、向量检索到 LLM 报告生成的完整工具链，同时包含全栈 Web 开发的完整工程实践。
+        以下项目覆盖 NLP 算法工程、向量检索、LLM 应用与全栈开发等方向，体现了从数据处理流水线到 RAG 系统落地、Agent 工作流设计的完整工程实践。
       </p>
 
       <div className="projects__list content-width">
@@ -135,10 +140,12 @@ export default function Projects() {
                   <div className="project-card__links">
                     {p.intro && (
                       <a href={p.intro} className="project-card__link project-card__link--accent"
-                         target="_blank" rel="noopener noreferrer">[ 业务介绍 ]</a>
+                         target="_blank" rel="noopener noreferrer">[ 技术介绍 ]</a>
                     )}
-                    <a href={p.source} className="project-card__link project-card__link--primary"
-                       target="_blank" rel="noopener noreferrer">[ GitHub ]</a>
+                    {p.source && (
+                      <a href={p.source} className="project-card__link project-card__link--primary"
+                         target="_blank" rel="noopener noreferrer">[ GitHub ]</a>
+                    )}
                   </div>
                 </footer>
               </article>
