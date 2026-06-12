@@ -30,11 +30,9 @@ const PAPERS = [
 export default function Papers() {
   return (
     <section className="papers section" id="papers" aria-label="论文成果">
-      <div className="cmd-line content-width">
-        <span className="prompt" aria-hidden="true">$</span>
-        <span className="cmd"> cat publications.bib</span>
+      <div className="section-header content-width">
+        <h2 className="section-title">Publications</h2>
       </div>
-      <div className="divider content-width" aria-hidden="true">{'─'.repeat(56)}</div>
 
       <ol className="papers__list content-width" aria-label="论文列表">
         {PAPERS.map((p, i) => (

@@ -1,25 +1,12 @@
 export default function Footer() {
   return (
     <footer className="footer section" id="contact" aria-label="页脚与联系方式">
-      <div className="cmd-line content-width" style={{ fontSize: 'var(--fs-md)' }}>
-        <span className="prompt" aria-hidden="true">$</span>
-        <span className="cmd"> mail -s "期待合作" leoijianrong@gmail.com</span>
+      <div className="section-header content-width" style={{ marginBottom: '24px' }}>
+        <h2 className="section-title">Let's Connect</h2>
+        <p className="section-desc">开放全职 &amp; 项目合作机会</p>
       </div>
-
-      <p className="footer__tag content-width">
-        // 开放全职 &amp; 项目合作机会
-      </p>
-
-      <div className="divider content-width" style={{ paddingTop: 'var(--sp-4)' }} aria-hidden="true">
-        {'─'.repeat(56)}
-      </div>
-
-      <div className="footer__copy content-width">
+      <div className="footer__copy content-width" style={{ marginTop: '32px', borderTop: '1px solid var(--border)', paddingTop: '24px', textAlign: 'center' }}>
         <span>© 2026 LeoiJR</span>
-        <span className="footer__blink" aria-hidden="true">
-          <span className="cursor" style={{ width: 10, height: 16 }} />
-          {' _'}
-        </span>
       </div>
     </footer>
   )

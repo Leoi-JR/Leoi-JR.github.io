@@ -1,31 +1,25 @@
 const SKILLS = [
   {
-    label: 'AI / ML',
-    items: ['PyTorch', 'Transformers', 'Sentence-Transformers', 'CuPy (GPU)'],
+    label: '数据工程',
+    items: [
+      '数据治理', 'ETL', '主数据管理', '数据仓库', '数据建模', 
+      '数据爬取', '文档解析与结构化 (PDF/Office/OCR)', 
+      'SQL', 'MySQL', 'PostgreSQL', 'Pandas'
+    ],
   },
   {
-    label: 'LLM / RAG',
-    items: ['RAG Pipeline', 'Context Engineering', 'BM25 + Embedding + Reranker + RRF', 'HyDE', 'Prompt Engineering'],
+    label: 'AI / LLM',
+    items: [
+      'RAG', 'Embedding', 'Agent 工作流 (Dify)', 
+      'Prompt Engineering', '向量检索'
+    ],
   },
   {
-    label: 'Agent 框架',
-    items: ['Dify', 'LangGraph', 'Tool Calling'],
-  },
-  {
-    label: '数据处理',
-    items: ['Pandas · NumPy', 'PyArrow / Parquet', 'MySQL · PostgreSQL · ChromaDB'],
-  },
-  {
-    label: '编程语言',
-    items: ['Python（主力）', 'TypeScript / JavaScript'],
-  },
-  {
-    label: '工程能力',
-    items: ['Flask · Git / GitHub', 'Docker · Linux · Conda'],
-  },
-  {
-    label: '工具链',
-    items: ['Claude Code (含 MCP) · Cursor · Copilot'],
+    label: '工程开发',
+    items: [
+      'Python', 'Flask', '多进程 / 多 GPU 并行调度', 
+      'Docker', 'Git'
+    ],
   },
 ]
 
@@ -47,27 +41,21 @@ const EDUCATION = [
 export default function About() {
   return (
     <section className="about section" id="about" aria-label="关于我">
-      <div className="cmd-line content-width">
-        <span className="prompt" aria-hidden="true">$</span>
-        <span className="cmd"> cat about.md</span>
+      <div className="section-header content-width">
+        <h2 className="section-title">About Me</h2>
       </div>
-      <div className="divider content-width" aria-hidden="true">{'─'.repeat(56)}</div>
 
       <div className="about__box content-width">
         {/* 个人简介 */}
         <p className="about__para">
-          研究生阶段聚焦地理空间 Tokenization 与时空轨迹表征学习——探索将城市空间关系编码为离散 Token 以增强 AI 模型的空间推理能力，参与发表 SCI 论文 2 篇。<br />
-          毕业后在规划设计行业担任数据/算法工程师近两年，围绕大规模文本数据的智能化处理，
-          独立构建了一套完整工具链——从关键词规则引擎、向量 Embedding 流水线，到 LLM 驱动的 RAG 系统与 Agent 工作流设计，
-          覆盖数据工程、NLP 算法设计与全栈应用开发全链路。现专注于 AI 工程 / LLM 应用落地。
+          研究生研究方向为空间计算与 NLP，主要探索将空间关系编码为离散 Token 应用于 AI 模型推理，参与发表 SCI 论文 2 篇。<br /><br />
+          毕业后担任数据工程师与 AI 应用工程师，参与业务数据的治理与解析。工作内容涵盖数据清洗、规则引擎、向量 Embedding 流水线，以及 LLM 驱动的 RAG 系统与 Agent 工作流的搭建。<br />
+          目前主要从事非结构化数据处理及大模型智能应用（RAG / Agent）的相关开发工作。
         </p>
 
         {/* 技术栈 */}
         <div className="about__skills">
-          <div className="cmd-line" style={{ fontSize: 'var(--fs-base)' }}>
-            <span className="prompt" aria-hidden="true">$</span>
-            <span className="cmd"> apt list --installed</span>
-          </div>
+          <h3 className="projects__cat-title" style={{marginBottom: '16px'}}>Skills & Tools</h3>
           <dl className="about__skill-grid" aria-label="技术栈">
             {SKILLS.map(({ label, items }) => (
               <div key={label} className="about__skill-group">
@@ -84,10 +72,7 @@ export default function About() {
 
         {/* 教育经历 */}
         <div className="about__edu">
-          <div className="cmd-line" style={{ fontSize: 'var(--fs-base)' }}>
-            <span className="prompt" aria-hidden="true">$</span>
-            <span className="cmd"> cat education.txt</span>
-          </div>
+          <h3 className="projects__cat-title" style={{marginBottom: '16px'}}>Education</h3>
           <ul className="about__edu-list" aria-label="教育经历">
             {EDUCATION.map((e) => (
               <li key={e.period} className="about__edu-item">

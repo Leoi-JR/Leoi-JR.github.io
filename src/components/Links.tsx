@@ -18,12 +18,10 @@ const LINKS = [
 
 export default function Links() {
   return (
-    <section className="links section" id="contact" aria-label="联系方式">
-      <div className="cmd-line content-width">
-        <span className="prompt" aria-hidden="true">$</span>
-        <span className="cmd"> ping -c 1 social-links</span>
+    <section className="links section" id="links" aria-label="联系方式">
+      <div className="section-header content-width">
+        <h2 className="section-title">Links</h2>
       </div>
-      <div className="divider content-width" aria-hidden="true">{'─'.repeat(56)}</div>
 
       <div className="links__grid content-width" role="list">
         {LINKS.map(({ icon, label, href, ariaLabel }) => (

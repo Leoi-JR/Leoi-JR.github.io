@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 
 const NAV_LINKS = [
-  { label: '[ 关于 ]', href: '#about' },
-  { label: '[ 项目 ]', href: '#projects' },
-  { label: '[ 论文 ]', href: '#papers' },
-  { label: '[ 联系 ]', href: '#contact' },
+  { label: 'About', href: '#about' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Papers', href: '#papers' },
+  { label: 'Links', href: '#links' },
 ]
 
 export default function Navbar() {
@@ -23,10 +23,14 @@ export default function Navbar() {
 
   return (
     <nav className={`navbar${scrolled ? ' navbar--scrolled' : ''}`} role="navigation" aria-label="主导航">
-      <div className="navbar__logo">
-        <span className="navbar__prompt" aria-hidden="true">~&gt;</span>
+      <a 
+        href="#" 
+        className="navbar__logo" 
+        onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
+        style={{ textDecoration: 'none' }}
+      >
         <span className="navbar__name">LeoiJR</span>
-      </div>
+      </a>
 
       <ul className="navbar__links" role="list">
         {NAV_LINKS.map(({ label, href }) => (
@@ -40,9 +44,6 @@ export default function Navbar() {
             </a>
           </li>
         ))}
-        <li aria-hidden="true">
-          <span className="cursor" style={{ width: 10, height: 18 }} />
-        </li>
       </ul>
     </nav>
   )
